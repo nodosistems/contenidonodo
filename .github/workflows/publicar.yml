@@ -33,7 +33,6 @@ jobs:
 
       - name: Publicar
         env:
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
         run: python publicar.py "${{ github.event.inputs.carpeta }}"
 

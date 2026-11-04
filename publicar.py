@@ -40,7 +40,7 @@ COLA = RAIZ / "cola"
 PUBLICADOS = RAIZ / "publicados"
 REGISTRO = RAIZ / "registro.csv"
 
-IG_USER_ID = os.environ.get("IG_USER_ID", "").strip()
+IG_USER_ID = os.environ.get("IG_USER_ID", "17841462825912071").strip()
 IG_TOKEN = os.environ.get("IG_TOKEN", "").strip()
 REPO = os.environ.get("GITHUB_REPOSITORY", "").strip()      # "igazmar/nodo-social"
 BRANCH = os.environ.get("GITHUB_REF_NAME", "main").strip() or "main"
