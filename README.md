@@ -6,13 +6,15 @@ sin depender de que ningún ordenador esté encendido.
 ## Cómo publicar algo
 
 1. Crea una carpeta dentro de `cola/` con este nombre:
-   `AAAA-MM-DD_lo-que-sea` → la fecha es el **día en que debe publicarse**.
-   Ejemplo: `cola/2026-11-10_carrusel-02`.
+   `AAAA-MM-DD_FRANJA_lo-que-sea` → la fecha es el **día** y FRANJA es `am`
+   (mañana, 07:30) o `pm` (tarde, 20:00).
+   Ejemplo: `cola/2026-11-10_am_carrusel-02` o `cola/2026-11-10_pm_story-serie`.
 2. Mete dentro las imágenes en orden (`01.png`, `02.png`, …; también vale `.jpg`)
    y un archivo `caption.txt` con el texto del post.
-3. Ya está. Cada mañana, el proceso automático publica las carpetas cuya fecha
-   ya haya llegado, apunta el enlace del post en `registro.csv` y mueve la
-   carpeta a `publicados/`.
+3. Ya está. Se publican **dos veces al día** (07:30 y 20:00, hora de Madrid): el
+   proceso coge la carpeta de la franja que toca, apunta el enlace en
+   `registro.csv` y la mueve a `publicados/`. Una carpeta sin `am`/`pm` se publica
+   en la primera franja de su día; una carpeta atrasada se recupera a la siguiente.
 
 ¿Publicar ahora mismo una carpeta concreta? En la pestaña **Actions** →
 **Publicar en Instagram** → **Run workflow**, y (opcional) escribe la ruta de la

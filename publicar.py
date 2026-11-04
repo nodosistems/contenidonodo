@@ -30,7 +30,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 API = "https://graph.facebook.com/v22.0"
@@ -126,25 +126,39 @@ def anotar(carpeta, media_id, permalink):
         w.writerow([date.today().isoformat(), carpeta.name, media_id, permalink])
 
 
-def fecha_carpeta(carpeta: Path):
+def slot_actual():
+    # Franja por hora UTC. Crons: 06:30 UTC → mañana (am); 19:00 UTC → tarde (pm).
+    h = int(os.environ.get("SLOT_HORA", datetime.now(timezone.utc).hour))
+    return "am" if h < 12 else "pm"
+
+
+def partes_carpeta(carpeta: Path):
+    # Nombre: AAAA-MM-DD[_am|_pm]_descripcion
     try:
-        return date.fromisoformat(carpeta.name[:10])
+        f = date.fromisoformat(carpeta.name[:10])
     except ValueError:
-        return None
+        return None, None
+    resto = carpeta.name[11:].split("_", 1)
+    slot = None
+    if resto and resto[0].lower() in ("am", "pm", "manana", "mañana", "tarde", "noche"):
+        slot = "am" if resto[0].lower() in ("am", "manana", "mañana") else "pm"
+    return f, slot
 
 
-def carpetas_pendientes():
+def carpetas_pendientes(slot):
     hoy = date.today()
     pend = []
     for c in sorted(COLA.iterdir() if COLA.exists() else []):
         if not c.is_dir():
             continue
-        f = fecha_carpeta(c)
+        f, s = partes_carpeta(c)
         if f is None:
             print(f"  (ignoro {c.name}: el nombre no empieza por AAAA-MM-DD)")
             continue
-        if f <= hoy:
-            pend.append(c)
+        if f < hoy:
+            pend.append(c)                       # atrasada: se recupera siempre
+        elif f == hoy and (s is None or s == slot):
+            pend.append(c)                       # de hoy y de esta franja (sin franja = cualquiera)
     return pend
 
 
@@ -153,15 +167,17 @@ def main():
         raise SystemExit("Faltan IG_USER_ID o IG_TOKEN (configúralos como secretos).")
     comprobar_token()
 
-    # Modo manual: `python publicar.py cola/2026-11-10_carrusel-01`
+    # Modo manual: `python publicar.py cola/2026-11-10_am_carrusel-01`
     objetivo = sys.argv[1] if len(sys.argv) > 1 else None
     if objetivo:
         carpetas = [Path(objetivo).resolve()]
     else:
-        carpetas = carpetas_pendientes()
+        slot = slot_actual()
+        print(f"Franja: {slot}")
+        carpetas = carpetas_pendientes(slot)
 
     if not carpetas:
-        print("Nada que publicar hoy.")
+        print("Nada que publicar en esta franja.")
         return
 
     PUBLICADOS.mkdir(exist_ok=True)
