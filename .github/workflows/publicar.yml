@@ -1,0 +1,50 @@
+name: Publicar en Instagram
+
+# Se puede lanzar a mano (botón "Run workflow") y, además, cada día:
+# publica automáticamente las carpetas de `cola/` cuya fecha ya haya llegado.
+on:
+  workflow_dispatch:
+    inputs:
+      carpeta:
+        description: "Carpeta concreta a publicar (opcional, p. ej. cola/2026-11-10_carrusel-01). Vacío = publica lo que toque hoy."
+        required: false
+        default: ""
+  schedule:
+    - cron: "0 8 * * *"   # 08:00 UTC ≈ 09:00 en Madrid (horario de invierno)
+
+permissions:
+  contents: write          # para poder mover carpetas a publicados/ y guardar registro.csv
+
+concurrency:
+  group: publicar-instagram
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publicar
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python publicar.py "${{ github.event.inputs.carpeta }}"
+
+      - name: Guardar registro y archivar lo publicado
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "nodo-bot"
+            git config user.email "nodo-bot@users.noreply.github.com"
+            git add -A
+            git commit -m "Publicado en Instagram ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "Sin cambios que guardar."
+          fi
