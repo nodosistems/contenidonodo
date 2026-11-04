@@ -4,6 +4,16 @@
 
 ---
 
+## 0. Foco de arranque (decisión de Nacho, 2026-11-04)
+
+Las primeras publicaciones **empiezan con fuerza** por lo más concreto y potente del producto, antes que por el problema abstracto:
+
+- **Gestión de citas y pacientes** y **agentes de IA conversacionales** en **web y WhatsApp**.
+- El «bombo»: *mientras descansas, se agendan citas*; *mientras pasas consulta, alguien resuelve las dudas en tu web y tu WhatsApp*.
+- Tono de beneficio tangible y cercano, sin cifras sin validar: describimos lo que el sistema **hace**, no resultados prometidos.
+
+Después de este arranque, se entra en el resto de pilares (problema espejo, criterio, educación, marca) del calendario de abajo. La rutina diaria debe priorizar este foco mientras no haya varias piezas de agentes/citas ya publicadas.
+
 ## 1. Objetivo
 
 Captar **leads de clínicas privadas** (personas que agenden la auditoría gratuita o escriban por DM) mediante publicaciones diarias en Instagram, con un sistema que **publica solo** dos veces al día: **07:30** y **20:00**.
