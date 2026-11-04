@@ -97,7 +97,7 @@ Rotamos entre cinco pilares para no cansar:
 - **Hook (0–3 s):** pregunta provocadora, dato sorprendente **[si está validado]** o afirmación que pare el scroll.
 - **Desarrollo:** una transformación (antes/después), un tutorial rápido o desmontar un mito; texto en pantalla + cortes rápidos.
 - **CTA:** seguir la cuenta, comentar una palabra, enlace en bio o DM.
-- **Nota honesta de producción:** el reel necesita **vídeo** (grabación o avatar + voz). Yo preparo el **guion y el storyboard completos** listos para grabar; la pieza de vídeo final requiere un paso de producción que vemos aparte (grabación propia o herramientas de vídeo con IA). Hasta tenerlo, el reel entra en el calendario como guion preparado.
+- **Producción con Higgsfield (plan gratuito):** el vídeo se genera en **Higgsfield**. El conector me deja ver modelos, ver tus generaciones (y traer su enlace) e importar vídeos, pero **no genera por sí solo**. Flujo: (1) yo preparo el guion + el prompt exacto (9:16, modelo, duración); (2) tú lo generas en Higgsfield con ese prompt; (3) yo recojo el clip, le añado texto de marca, te lo paso a validar y lo publico como reel. **Créditos:** plan gratuito limitado → priorizar **1–2 reels potentes/semana** (los carruseles y posts siguen a diario). Briefs de reels en `reels/`.
 
 ### 6.4 Post / imagen única
 - **Para qué:** una frase que cale, una cita, un dato de marca, un recordatorio. Rápido de consumir.
