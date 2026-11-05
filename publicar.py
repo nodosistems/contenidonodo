@@ -87,8 +87,40 @@ def url_raw(carpeta: Path, foto: Path):
     return f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{urllib.parse.quote(rel)}"
 
 
+def publicar_reel(carpeta: Path, video: Path, caption: str):
+    print(f"\n== {carpeta.name}: reel {video.name} ==")
+    creation_id = _post(
+        f"{IG_USER_ID}/media",
+        {"media_type": "REELS", "video_url": url_raw(carpeta, video),
+         "caption": caption, "share_to_feed": "true", "access_token": IG_TOKEN},
+    )["id"]
+    print(f"  contenedor -> {creation_id}")
+    # Instagram procesa el vídeo de forma asíncrona: esperar a que acabe.
+    for _ in range(40):
+        time.sleep(6)
+        est = _get(creation_id, {"fields": "status_code", "access_token": IG_TOKEN})
+        code = est.get("status_code")
+        print(f"  procesando… {code}")
+        if code == "FINISHED":
+            break
+        if code == "ERROR":
+            raise SystemExit(f"Instagram no pudo procesar el vídeo: {est}")
+    else:
+        raise SystemExit("El vídeo tardó demasiado en procesarse (timeout)")
+    media_id = _post(
+        f"{IG_USER_ID}/media_publish",
+        {"creation_id": creation_id, "access_token": IG_TOKEN},
+    )["id"]
+    permalink = _get(media_id, {"fields": "permalink", "access_token": IG_TOKEN}).get("permalink", "")
+    print(f"  PUBLICADO (reel) -> {media_id}  {permalink}")
+    return media_id, permalink
+
+
 def publicar_carpeta(carpeta: Path):
     caption = (carpeta / "caption.txt").read_text(encoding="utf-8").strip()
+    videos = sorted(p for p in carpeta.iterdir() if p.suffix.lower() == ".mp4")
+    if videos:
+        return publicar_reel(carpeta, videos[0], caption)
     fotos = imagenes_de(carpeta)
     print(f"\n== {carpeta.name}: {len(fotos)} imágenes ==")
 
