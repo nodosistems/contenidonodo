@@ -48,18 +48,26 @@ BRANCH = os.environ.get("GITHUB_REF_NAME", "main").strip() or "main"
 EXTS = (".png", ".jpg", ".jpeg")
 
 
+def _abrir(req):
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read().decode())
+    except urllib.error.HTTPError as e:
+        cuerpo = e.read().decode(errors="replace")
+        print(f"  [Graph API {e.code}] {cuerpo}")
+        raise
+
+
 def _post(path, params):
     data = urllib.parse.urlencode(params).encode()
     req = urllib.request.Request(f"{API}/{path}", data=data, method="POST")
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode())
+    return _abrir(req)
 
 
 def _get(path, params):
     q = urllib.parse.urlencode(params)
     req = urllib.request.Request(f"{API}/{path}?{q}", method="GET")
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode())
+    return _abrir(req)
 
 
 def comprobar_token():
