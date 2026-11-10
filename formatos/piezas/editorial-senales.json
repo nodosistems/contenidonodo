@@ -1,0 +1,6 @@
+{"laminas":[
+ {"formato":"ed-portada","kick":"Test rápido","titulo":"3 señales de que tu clínica depende demasiado de [[ti]]"},
+ {"formato":"ed-punto","n":"01","de":"03","titulo":"Si faltas un día, nadie sabe qué citas hay.","texto":"La agenda vive en tu cabeza (o en tu móvil)."},
+ {"formato":"ed-punto","n":"02","de":"03","alt":true,"titulo":"Los pacientes te escriben a tu WhatsApp personal.","texto":"Y contestas entre consulta y consulta."},
+ {"formato":"ed-punto","n":"03","de":"03","titulo":"Lo que se habló en recepción no está escrito en ningún sitio.","texto":"Si no lo recuerdas tú, se pierde."},
+ {"formato":"ed-cierre","kick":"¿Te has visto en alguna?","titulo":"No es falta de esfuerzo. Es falta de [[sistema]].","texto":"Miramos juntos cómo gestionas hoy y qué se puede quitar de tu día.","palabra":"AUDITORÍA"}]}
