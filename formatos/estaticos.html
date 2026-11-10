@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="fuentes.css">
+<style>
+:root{--azul:#12264A;--noche:#0B1830;--niebla:#F4F6FA;--arena:#F2EBE1;--cielo:#D6E4F5;--coral:#E2603F;--coral-osc:#F07A5C;--gris:#5A6680;--linea:#D9DEE8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1350px;overflow:hidden;font-family:'DM Sans';color:var(--azul)}
+.lam{position:relative;width:1080px;height:1350px;overflow:hidden}
+.coral{color:var(--coral)} .oscuro .coral{color:var(--coral-osc)}
+.pie{position:absolute;left:80px;right:80px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font-size:28px;font-weight:500;opacity:.7}
+.sim{width:54px}
+
+/* ---------- NOTA DEL MÓVIL ---------- */
+.nota{background:var(--arena)}
+.nota .papel{position:absolute;left:110px;right:110px;top:110px;bottom:400px;background:#FFFDF8;border-radius:44px;box-shadow:0 30px 70px rgba(60,45,20,.13);padding:64px 70px;transform:rotate(-2deg)}
+.nota .hora{font-size:28px;color:#A39886;font-weight:500}
+.nota h1{font-family:Sora;font-weight:700;font-size:62px;letter-spacing:-.025em;margin:14px 0 40px}
+.nota li{list-style:none;display:flex;gap:26px;align-items:flex-start;font-size:40px;line-height:1.25;margin-bottom:28px}
+.nota .ck{width:44px;height:44px;border-radius:50%;border:3px solid #C9BFAE;flex:none;margin-top:2px}
+.nota li.hecho{color:#A39886;text-decoration:line-through}
+.nota li.hecho .ck{background:#C9BFAE}
+.nota .remate{position:absolute;left:90px;right:90px;bottom:150px;font-family:Sora;font-weight:600;font-size:60px;line-height:1.12;letter-spacing:-.02em}
+
+/* ---------- ANTES / DESPUÉS ---------- */
+.ad .mitad{position:absolute;left:0;right:0;height:675px;padding:80px 80px}
+.ad .arriba{top:0;background:var(--niebla)} .ad .abajo{top:675px;background:var(--azul);color:#fff}
+.ad .eti{font-weight:700;font-size:28px;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-bottom:22px}
+.ad h2{font-family:Sora;font-weight:700;font-size:100px;letter-spacing:-.03em;line-height:1.05;margin-bottom:34px}
+.ad li{list-style:none;font-size:44px;line-height:1.3;margin-bottom:18px;padding-left:46px;position:relative}
+.ad .arriba li::before{content:"✕";position:absolute;left:0;color:#9AA3B5;font-weight:700}
+.ad .abajo li::before{content:"";position:absolute;left:4px;top:19px;width:18px;height:18px;border-radius:50%;background:#fff}
+.ad .vs{position:absolute;right:80px;top:625px;width:100px;height:100px;border-radius:50%;background:#fff;color:var(--azul);font-family:Sora;font-weight:700;font-size:34px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:2}
+.ad .pie{color:#fff}
+
+/* ---------- EDITORIAL CLARO (carrusel) ---------- */
+.ed{background:var(--arena)} .ed.alt{background:var(--cielo)}
+.ed .num{position:absolute;left:70px;top:90px;font-family:Sora;font-weight:700;font-size:330px;letter-spacing:-.06em;line-height:.9;color:var(--azul)}
+.ed .num small{font-size:60px;letter-spacing:0;opacity:.45;margin-left:10px}
+.ed .txt{position:absolute;left:80px;right:110px;top:560px}
+.ed h2{font-family:Sora;font-weight:600;font-size:74px;letter-spacing:-.03em;line-height:1.08}
+.ed p{font-size:38px;line-height:1.35;margin-top:30px;color:#3C4A66}
+.ed.portada h1{position:absolute;left:80px;right:100px;top:300px;font-family:Sora;font-weight:700;font-size:104px;letter-spacing:-.04em;line-height:1.02}
+.ed .kick{position:absolute;left:80px;top:110px;font-weight:700;font-size:28px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.ed svg.deco{position:absolute;right:-40px;bottom:150px;opacity:.9}
+.ed.cierre{background:var(--azul);color:#fff}
+.ed.cierre .btn{display:inline-flex;gap:18px;align-items:center;background:#fff;color:var(--azul);border-radius:999px;padding:26px 42px;font-family:Sora;font-weight:700;font-size:44px;margin-top:50px}
+</style></head><body><div id="root"></div>
+<script>
+const coral=s=>s.replace(/\[\[(.+?)\]\]/g,'<span class="coral">$1</span>');
+const SIM_POS='<img class="sim" src="nodo-simbolo.svg">';
+const pie=(izq,der)=>`<div class="pie"><span>${izq||'nodosistemas.es'}</span><span>${der||''}</span></div>`;
+function deco(){ // red de nodos de adorno (determinista)
+  let s='<svg class="deco" width="520" height="420">';const P=[[60,300],[180,180],[320,260],[260,60],[440,140],[420,340]];
+  [[0,1],[1,2],[1,3],[2,4],[3,4],[2,5],[4,5]].forEach(([a,b])=>s+=`<line x1="${P[a][0]}" y1="${P[a][1]}" x2="${P[b][0]}" y2="${P[b][1]}" stroke="#12264A" stroke-opacity=".25" stroke-width="5"/>`);
+  P.forEach((p,i)=>s+=`<circle cx="${p[0]}" cy="${p[1]}" r="${i===2?22:16}" fill="${i===2?'#E2603F':'#12264A'}"/>`); return s+'</svg>';
+}
+window.pintar=function(L){ // L = una lámina {formato, ...}
+  let h='';
+  if(L.formato==='nota') h=`<div class="lam nota"><div class="papel"><div class="hora">${L.hora}</div><h1>${L.titulo}</h1><ul>${L.items.map(i=>`<li class="${i.startsWith('~')?'hecho':''}"><span class="ck"></span><span>${i.replace(/^~/,'')}</span></li>`).join('')}</ul></div><div class="remate">${coral(L.remate)}</div>${pie('',SIM_POS)}</div>`;
+  if(L.formato==='antes-despues') h=`<div class="lam ad"><div class="mitad arriba"><div class="eti">${L.antes.eti}</div><h2>${L.antes.titulo}</h2><ul>${L.antes.items.map(i=>`<li>${i}</li>`).join('')}</ul></div><div class="vs">vs</div><div class="mitad abajo oscuro"><div class="eti">${L.despues.eti}</div><h2>${coral(L.despues.titulo)}</h2><ul>${L.despues.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>${pie('nodosistemas.es','')}</div>`;
+  if(L.formato==='ed-portada') h=`<div class="lam ed portada"><div class="kick">${L.kick}</div><h1>${coral(L.titulo)}</h1>${deco()}${pie('nodosistemas.es','Desliza →')}</div>`;
+  if(L.formato==='ed-punto') h=`<div class="lam ed ${L.alt?'alt':''}"><div class="num">${L.n}<small>/ ${L.de}</small></div><div class="txt"><h2>${coral(L.titulo)}</h2>${L.texto?`<p>${L.texto}</p>`:''}</div>${pie('nodosistemas.es',SIM_POS)}</div>`;
+  if(L.formato==='ed-cierre') h=`<div class="lam ed cierre oscuro"><div class="kick" style="opacity:.7">${L.kick}</div><div class="txt" style="top:330px"><h2 style="font-size:88px">${coral(L.titulo)}</h2><p style="color:#C8D2E6">${L.texto}</p><div class="btn">Comenta ${L.palabra} 👇</div></div><img src="nodo-logo-negativo.svg" style="position:absolute;left:80px;bottom:70px;width:230px"></div>`;
+  document.getElementById('root').innerHTML=h;
+};
+</script></body></html>
