@@ -44,6 +44,17 @@ body{width:1080px;height:1350px;overflow:hidden;font-family:'DM Sans';color:var(
 .ed svg.deco{position:absolute;right:-40px;bottom:150px;opacity:.9}
 .ed.cierre{background:var(--azul);color:#fff}
 .ed.cierre .btn{display:inline-flex;gap:18px;align-items:center;background:#fff;color:var(--azul);border-radius:999px;padding:26px 42px;font-family:Sora;font-weight:700;font-size:44px;margin-top:50px}
+/* ---------- FOTO DE FONDO ---------- */
+.foto{background:#0B1830;color:#fff}
+.foto .img{position:absolute;inset:0;background-size:cover;background-position:center}
+.foto .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,24,48,.15) 0%,rgba(11,24,48,.35) 45%,rgba(11,24,48,.88) 100%)}
+.foto.arriba .velo{background:linear-gradient(0deg,rgba(11,24,48,.15) 0%,rgba(11,24,48,.35) 45%,rgba(11,24,48,.88) 100%)}
+.foto .txt{position:absolute;left:80px;right:100px;bottom:170px}
+.foto.arriba .txt{bottom:auto;top:130px}
+.foto h2{font-family:Sora;font-weight:700;font-size:92px;letter-spacing:-.035em;line-height:1.04}
+.foto p{font-size:38px;line-height:1.35;margin-top:26px;color:#DCE3F0}
+.foto .credito{position:absolute;right:30px;bottom:24px;font-size:20px;opacity:.55}
+.foto .pie{color:#fff}
 </style></head><body><div id="root"></div>
 <script>
 const coral=s=>s.replace(/\[\[(.+?)\]\]/g,'<span class="coral">$1</span>');
@@ -61,6 +72,7 @@ window.pintar=function(L){ // L = una lámina {formato, ...}
   if(L.formato==='ed-portada') h=`<div class="lam ed portada"><div class="kick">${L.kick}</div><h1>${coral(L.titulo)}</h1>${deco()}${pie('nodosistemas.es','Desliza →')}</div>`;
   if(L.formato==='ed-punto') h=`<div class="lam ed ${L.alt?'alt':''}"><div class="num">${L.n}<small>/ ${L.de}</small></div><div class="txt"><h2>${coral(L.titulo)}</h2>${L.texto?`<p>${L.texto}</p>`:''}</div>${pie('nodosistemas.es',SIM_POS)}</div>`;
   if(L.formato==='ed-cierre') h=`<div class="lam ed cierre oscuro"><div class="kick" style="opacity:.7">${L.kick}</div><div class="txt" style="top:330px"><h2 style="font-size:88px">${coral(L.titulo)}</h2><p style="color:#C8D2E6">${L.texto}</p><div class="btn">Comenta ${L.palabra} 👇</div></div><img src="nodo-logo-negativo.svg" style="position:absolute;left:80px;bottom:70px;width:230px"></div>`;
+  if(L.formato==='foto') h=`<div class="lam foto oscuro ${L.texto_arriba?'arriba':''}"><div class="img" style="background-image:url('${L.imagen}');background-position:${L.encuadre||'center'}"></div><div class="velo"></div><div class="txt"><h2>${coral(L.titulo)}</h2>${L.texto?`<p>${L.texto}</p>`:''}</div>${pie('nodosistemas.es','')}${L.credito?`<div class="credito">${L.credito}</div>`:''}</div>`;
   document.getElementById('root').innerHTML=h;
 };
 </script></body></html>
