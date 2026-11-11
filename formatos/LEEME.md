@@ -20,7 +20,7 @@ titular blanco, una palabra en coral). Nos dijeron que era repetitivo. La marca 
 | Código | Qué es | Plantilla |
 | --- | --- | --- |
 | `reel-gancho` | Reel de tipografía animada: gancho en el 1.er segundo, una idea por escena, el fondo cambia en cada escena, audio propio | `reel-gancho/reel.html` (guion en `window.GUION`) + `grabar_reel.js` + `reel-gancho/sonido.sh` |
-| `reel-chat` | Reel de chat de WhatsApp/web animado | `/mnt/project-files/contenido-redes/instagram/11-whatsapp-agente/` |
+| `reel-chat` | Reel de chat de WhatsApp/web animado (fondo arena o azul) | `reel-chat/dudas-domingo.html` (copiar y cambiar mensajes; define `DURACION`) |
 | `nota` | Post «nota del móvil» con lista de pendientes (fondo arena) | `estaticos.html` formato `nota` |
 | `antes-despues` | Post partido: sin sistema / con sistema | `estaticos.html` formato `antes-despues` |
 | `editorial` | Carrusel claro con numerales grandes (arena/cielo, cierre azul) | `estaticos.html` formatos `ed-portada`, `ed-punto`, `ed-cierre` |
