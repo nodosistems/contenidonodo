@@ -43,6 +43,7 @@ body{width:1080px;height:1350px;overflow:hidden;font-family:'DM Sans';color:var(
 .ed .kick{position:absolute;left:80px;top:110px;font-weight:700;font-size:28px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
 .ed svg.deco{position:absolute;right:-40px;bottom:150px;opacity:.9}
 .ed.cierre{background:var(--azul);color:#fff}
+.ed.cierre .num{color:#fff} .ed.cierre p{color:#C8D2E6}
 .ed.cierre .btn{display:inline-flex;gap:18px;align-items:center;background:#fff;color:var(--azul);border-radius:999px;padding:26px 42px;font-family:Sora;font-weight:700;font-size:44px;margin-top:50px}
 /* ---------- FOTO DE FONDO ---------- */
 .foto{background:#0B1830;color:#fff}
@@ -70,7 +71,7 @@ window.pintar=function(L){ // L = una lámina {formato, ...}
   if(L.formato==='nota') h=`<div class="lam nota"><div class="papel"><div class="hora">${L.hora}</div><h1>${L.titulo}</h1><ul>${L.items.map(i=>`<li class="${i.startsWith('~')?'hecho':''}"><span class="ck"></span><span>${i.replace(/^~/,'')}</span></li>`).join('')}</ul></div><div class="remate">${coral(L.remate)}</div>${pie('',SIM_POS)}</div>`;
   if(L.formato==='antes-despues') h=`<div class="lam ad"><div class="mitad arriba"><div class="eti">${L.antes.eti}</div><h2>${L.antes.titulo}</h2><ul>${L.antes.items.map(i=>`<li>${i}</li>`).join('')}</ul></div><div class="vs">vs</div><div class="mitad abajo oscuro"><div class="eti">${L.despues.eti}</div><h2>${coral(L.despues.titulo)}</h2><ul>${L.despues.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>${pie('nodosistemas.es','')}</div>`;
   if(L.formato==='ed-portada') h=`<div class="lam ed portada"><div class="kick">${L.kick}</div><h1>${coral(L.titulo)}</h1>${deco()}${pie('nodosistemas.es','Desliza →')}</div>`;
-  if(L.formato==='ed-punto') h=`<div class="lam ed ${L.alt?'alt':''}"><div class="num">${L.n}<small>/ ${L.de}</small></div><div class="txt"><h2>${coral(L.titulo)}</h2>${L.texto?`<p>${L.texto}</p>`:''}</div>${pie('nodosistemas.es',SIM_POS)}</div>`;
+  if(L.formato==='ed-punto') h=`<div class="lam ed ${L.alt?'alt':''} ${L.oscuro?'cierre oscuro':''}"><div class="num">${L.n}${L.de?`<small>/ ${L.de}</small>`:''}</div><div class="txt"><h2>${coral(L.titulo)}</h2>${L.texto?`<p>${L.texto}</p>`:''}</div>${pie('nodosistemas.es',SIM_POS)}</div>`;
   if(L.formato==='ed-cierre') h=`<div class="lam ed cierre oscuro"><div class="kick" style="opacity:.7">${L.kick}</div><div class="txt" style="top:330px"><h2 style="font-size:88px">${coral(L.titulo)}</h2><p style="color:#C8D2E6">${L.texto}</p><div class="btn">Comenta ${L.palabra} 👇</div></div><img src="nodo-logo-negativo.svg" style="position:absolute;left:80px;bottom:70px;width:230px"></div>`;
   if(L.formato==='foto') h=`<div class="lam foto oscuro ${L.texto_arriba?'arriba':''}"><div class="img" style="background-image:url('${L.imagen}');background-position:${L.encuadre||'center'}"></div><div class="velo"></div><div class="txt"><h2>${coral(L.titulo)}</h2>${L.texto?`<p>${L.texto}</p>`:''}</div>${pie('nodosistemas.es','')}${L.credito?`<div class="credito">${L.credito}</div>`:''}</div>`;
   document.getElementById('root').innerHTML=h;

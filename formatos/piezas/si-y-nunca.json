@@ -1,0 +1,7 @@
+{"laminas":[
+ {"formato":"ed-portada","kick":"Automatizar con criterio","titulo":"Lo que dejaríamos a un sistema. Y lo que siempre es [[tuyo]]."},
+ {"formato":"ed-punto","n":"Sí","titulo":"Confirmar y recordar citas.","texto":"Es lo mismo cada día. Un sistema no se olvida."},
+ {"formato":"ed-punto","n":"Sí","alt":true,"titulo":"Responder las dudas de siempre.","texto":"Horarios, cómo llegar, qué traer a la primera visita."},
+ {"formato":"ed-punto","n":"Sí","titulo":"Avisar cuando se libera un hueco.","texto":"Para que la agenda no se quede con agujeros."},
+ {"formato":"ed-punto","n":"No","oscuro":true,"titulo":"Lo clínico, lo delicado y las excepciones.","texto":"Eso lo decide siempre una persona. Siempre."},
+ {"formato":"ed-cierre","kick":"La IA propone. Tú decides.","titulo":"Menos tareas repetidas. Más tiempo para [[ti]] y tus pacientes.","texto":"Miramos contigo qué tiene sentido automatizar en tu clínica y qué no.","palabra":"AUDITORÍA"}]}
