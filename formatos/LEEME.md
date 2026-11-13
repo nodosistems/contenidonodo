@@ -24,6 +24,8 @@ titular blanco, una palabra en coral). Nos dijeron que era repetitivo. La marca 
 | `nota` | Post «nota del móvil» con lista de pendientes (fondo arena) | `estaticos.html` formato `nota` |
 | `antes-despues` | Post partido: sin sistema / con sistema | `estaticos.html` formato `antes-despues` |
 | `editorial` | Carrusel claro con numerales grandes (arena/cielo, cierre azul) | `estaticos.html` formatos `ed-portada`, `ed-punto`, `ed-cierre` |
+| `mito` | Carrusel mito/realidad: arriba niebla con el mito tachado, abajo azul con la realidad | `estaticos.html` formato `mito` (+ `ed-portada` con `alt` y `ed-cierre`) |
+| `pregunta` | Post con la pregunta de un paciente en burbuja grande (fondo cielo) | `estaticos.html` formato `pregunta` |
 | `clasico` | La plantilla azul/niebla original | `/mnt/project-files/contenido-redes/plantilla/` → **máximo 1 de cada 6 piezas** |
 
 Una pieza estática = un JSON en `piezas/` y
