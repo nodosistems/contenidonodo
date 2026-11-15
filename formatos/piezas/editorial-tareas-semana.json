@@ -1,0 +1,6 @@
+{"laminas":[
+ {"formato":"ed-portada","kick":"Mira tu semana","titulo":"3 tareas que te comen la semana (y ninguna es clínica)"},
+ {"formato":"ed-punto","n":"01","de":"03","titulo":"Confirmar y recordar citas.","texto":"Cada día, una por una, para que no falte nadie."},
+ {"formato":"ed-punto","n":"02","de":"03","alt":true,"titulo":"Responder las mismas dudas.","texto":"Horarios, dónde estáis, qué llevar a la primera visita."},
+ {"formato":"ed-punto","n":"03","de":"03","titulo":"Recolocar cancelaciones.","texto":"Rellenar huecos y mover citas a mano, una a una."},
+ {"formato":"ed-cierre","kick":"¿Cuánto suman al mes?","titulo":"Son horas. Y son [[tuyas]].","texto":"Miramos tu día a día y vemos qué se puede dejar en automático.","palabra":"AUDITORÍA"}]}

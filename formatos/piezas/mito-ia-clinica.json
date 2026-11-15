@@ -1,0 +1,6 @@
+{"laminas":[
+ {"formato":"ed-portada","alt":true,"kick":"Mito o realidad","titulo":"Lo que se cree de poner IA en una clínica (y no es así)"},
+ {"formato":"mito","n":"1/3","mito":"«La IA va a hablar con mis pacientes por mí.»","realidad":"Contesta lo repetitivo: horarios, recordatorios, confirmaciones. Lo personal sigue siendo de [[personas]]."},
+ {"formato":"mito","n":"2/3","mito":"«Esto es para clínicas grandes.»","realidad":"Cuanto más pequeña, más se nota recuperar un par de horas al día."},
+ {"formato":"mito","n":"3/3","mito":"«Si el sistema falla, me quedo vendido.»","realidad":"Tú mantienes el control. El sistema propone y [[tú]] decides."},
+ {"formato":"ed-cierre","kick":"¿Cuál te sonaba?","titulo":"Menos miedo. Más criterio.","texto":"Miramos juntos qué tiene sentido en tu clínica y qué no, sin compromiso.","palabra":"AUDITORÍA"}]}
