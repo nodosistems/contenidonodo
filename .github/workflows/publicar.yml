@@ -26,6 +26,10 @@ jobs:
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
+        with:
+          # Siempre lo último de main (no el commit que disparó el run): si un run
+          # manual de rescate ya publicó y movió la carpeta, este no la duplica.
+          ref: main
 
       - name: Configurar Python
         uses: actions/setup-python@v5
