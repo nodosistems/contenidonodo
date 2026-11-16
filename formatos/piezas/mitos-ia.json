@@ -1,0 +1,6 @@
+{"laminas":[
+ {"formato":"ed-portada","kick":"Mito o realidad","titulo":"Lo que se dice de la IA en una clínica (y lo que de verdad hace)"},
+ {"formato":"mito","n":"1/3","mito":"«La IA tomará decisiones sobre mis pacientes.»","realidad":"Gestiona citas y dudas generales. Lo clínico lo decide siempre una [[persona]]."},
+ {"formato":"mito","n":"2/3","mito":"«Esto es solo para clínicas grandes.»","realidad":"Se empieza por una sola tarea, a la medida de tu consulta."},
+ {"formato":"mito","n":"3/3","mito":"«Tendré que aprender a usar algo complicado.»","realidad":"Funciona en lo que ya usas: tu WhatsApp, tu web, tu agenda."},
+ {"formato":"ed-cierre","kick":"La IA propone. Tú decides.","titulo":"Tecnología que se adapta a [[ti]], no al revés.","texto":"Te enseñamos qué haría y qué no en tu clínica, sin compromiso.","palabra":"AUDITORÍA"}]}
