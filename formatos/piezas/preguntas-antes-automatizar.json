@@ -1,0 +1,6 @@
+{"laminas":[
+ {"formato":"ed-portada","kick":"Antes de automatizar nada","titulo":"3 preguntas que hacemos siempre en una clínica"},
+ {"formato":"ed-punto","n":"01","de":"03","titulo":"¿Qué tarea repites cada día, igual?","texto":"Ahí suele estar el primer tiempo que se puede recuperar."},
+ {"formato":"ed-punto","n":"02","de":"03","alt":true,"titulo":"¿Quién la hace hoy y qué deja de hacer por ella?","texto":"El coste no es la tarea. Es lo que se queda sin hacer."},
+ {"formato":"ed-punto","n":"03","de":"03","titulo":"¿Qué tiene que seguir pasando por una [[persona]]?","texto":"Esto lo marcamos primero. Y no se toca."},
+ {"formato":"ed-cierre","kick":"Primero criterio, después tecnología","titulo":"Con estas tres respuestas ya sabemos por dónde empezar.","texto":"Las vemos contigo en la auditoría. Gratis y sin compromiso.","palabra":"AUDITORÍA"}]}
