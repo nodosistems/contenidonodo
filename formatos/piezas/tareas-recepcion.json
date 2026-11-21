@@ -1,0 +1,7 @@
+{"laminas":[
+ {"formato":"ed-portada","kick":"Recepción de clínica","titulo":"4 tareas que se repiten cada día (y no necesitan criterio)"},
+ {"formato":"ed-punto","n":"01","de":"04","titulo":"Confirmar las citas de mañana","texto":"Uno a uno, por WhatsApp o por teléfono. Cada tarde."},
+ {"formato":"ed-punto","n":"02","de":"04","alt":true,"titulo":"Responder horarios, precios y cómo llegar","texto":"La misma respuesta, escrita otra vez."},
+ {"formato":"ed-punto","n":"03","de":"04","titulo":"Mover citas y cubrir huecos","texto":"Buscar fecha, avisar, volver a apuntar."},
+ {"formato":"ed-punto","n":"04","de":"04","alt":true,"titulo":"Enviar facturas y justificantes","texto":"Buscar al paciente, descargar, adjuntar, enviar."},
+ {"formato":"ed-cierre","kick":"Lo repetitivo, resuelto","titulo":"Y tu equipo, con [[el paciente]] que tiene delante.","texto":"Te ayudamos a ver cuánto tiempo se va en estas cuatro.","palabra":"HORAS"}]}
