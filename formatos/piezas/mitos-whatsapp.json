@@ -1,0 +1,6 @@
+{"laminas":[
+ {"formato":"ed-portada","alt":true,"kick":"Mito o realidad","titulo":"3 dudas sobre poner un asistente en el WhatsApp de la clínica"},
+ {"formato":"mito","n":"1/3","mito":"«Contestará cualquier cosa, aunque no la sepa.»","realidad":"Si no tiene la respuesta, lo dice y lo pasa a una [[persona]] de tu equipo.","desliza":true},
+ {"formato":"mito","n":"2/3","mito":"«Perderé el control de lo que se les dice.»","realidad":"Las respuestas las defines [[tú]]. Y las cambias cuando quieras.","desliza":true},
+ {"formato":"mito","n":"3/3","mito":"«Tendré que cambiar el número de siempre.»","realidad":"Se puede seguir con el número que tus pacientes ya conocen.","desliza":true},
+ {"formato":"ed-cierre","kick":"La IA propone. Tú decides.","titulo":"Un asistente que sabe hasta dónde llega.","texto":"Te enseñamos cómo funcionaría en el WhatsApp de tu clínica.","palabra":"AUDITORÍA"}]}
