@@ -9,9 +9,12 @@ on:
         description: "Carpeta concreta a publicar (opcional, p. ej. cola/2026-11-10_carrusel-01). Vacío = publica lo que toque hoy."
         required: false
         default: ""
-  schedule:
-    - cron: "30 6 * * *"   # 06:30 UTC = 07:30 en Madrid (invierno) → franja mañana (am)
-    - cron: "0 19 * * *"   # 19:00 UTC = 20:00 en Madrid (invierno) → franja tarde (pm)
+  # PAUSA TEMPORAL (24-nov-2026): Instagram bloquea media_publish por antispam (403, subcódigo 2207051).
+  # Para no alargar el bloqueo con reintentos, el horario automático queda desactivado.
+  # Para reactivarlo, quita los «#» de las tres líneas siguientes.
+  # schedule:
+  #   - cron: "30 6 * * *"   # 06:30 UTC = 07:30 en Madrid (invierno) → franja mañana (am)
+  #   - cron: "0 19 * * *"   # 19:00 UTC = 20:00 en Madrid (invierno) → franja tarde (pm)
 
 permissions:
   contents: write          # para poder mover carpetas a publicados/ y guardar registro.csv
