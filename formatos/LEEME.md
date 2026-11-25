@@ -46,7 +46,9 @@ Un reel = editar `GUION` en una copia de `reel-gancho/reel.html`, crear el audio
    (y 230–1440, 230 px libres a la derecha), cierre con una sola petición (comenta PALABRA) y una
    última frase que haga eco del gancho.
 5. **Captions** humanizados (método ig-human): sin rayas largas, sin frases de relleno de IA, frases
-   cortas. Siempre: CTA «Comenta AUDITORÍA/HORAS 👇» + enlace de auditoría + «(también en la bio)».
+   cortas. Siempre: CTA «Comenta AUDITORÍA/HORAS 👇» + «Reserva tu auditoría gratuita desde el enlace de la bio 🔗».
+   **Sin enlaces externos en el caption** (decisión de Nacho, 25-nov-2026, tras el bloqueo antispam de Instagram
+   del 23-nov: el mismo enlace largo repetido en cada post es el principal sospechoso).
 6. Guardrails de siempre: nada de cifras sin validar, nada de plazos garantizados, gestión y no
    tratamientos, liberar/devolver/acompañar (nunca sustituir).
 7. Nuevos formatos bienvenidos (meme de texto, «pregunta de paciente», mini-encuesta, story-serie):
